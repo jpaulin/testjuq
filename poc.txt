@@ -1,0 +1,140 @@
+What is this?
+
+Development-time, kind of sketchy memo
+that might guide insights into why
+I wrote 'testjuq'.
+
+Jukka
+24.3.2017
+
+You have soon millions of packages on npm and the industry
+of front-end / backend development certainly looks very
+enticing.
+
+However, as a programmer, with rather long
+background in other languages, I can't but ask:
+
+  "Which of those millions of packages amount to something
+  that I do NOT need to use my time on?"
+
+Bit by bit: augmenting original JavaScript
+
+Javascript was made extendible by the clever design of
+the original language in 1995. Eich, the creator of
+Javascript, had a very tight schedule. However, he was
+an experienced software veteran, with background in
+companies like Silicon Graphics. He made Javascript in
+practically 10 days.
+
+(" The first version was completed in ten days in
+   order to accommodate the Navigator 2.0 Beta release
+   schedule...") [] 
+
+Public packages emerge: jQuery and beyond
+-
+
+Practical examples of switching from package to another
+
+How often would you *actually* switch from a package to
+a competetive one?
+
+- refactor tools
+- automated
+- manual work
+- code level work
+- data types?
+- tests rewriting
+
+Various levels of fingerprinting
+
+Interesting, that in the [1] paper authors use two kinds
+of fingerprinting levels. 
+
+One of the concerns more experienced programmers
+have with a thing like Npm registry and cabal of
+packages is that we tend to not know the BOM of
+our projects anymore. If we throw in 50000 lines of
+code into a medium sized project, of which 45000
+lines is not from our own hands, we're taking quite
+a risk.
+
+
+Project lifecycle in JavaScript
+
+We might have different and various reasons to
+switch certain software modules in a project. There's
+need to
+ update
+ test-drive
+ patch
+
+Update means keeping up with the original package, not switching
+it to another one. So often most of the API stays intact;
+though of course there are "breaking" changes where intentional
+backwards compatibility is broken to gain a merit deemed more
+important.
+
+Patching is the quickest and "dirtiest" method. It is the
+original way that UNIX software and Linux kernel got
+done. People sent emails containing new proposals, and Linus
+Torvalds made decisions to either include or bounce the
+code back. Change was fast - and in case of Linux kernel,
+it remains really fast.
+
+
+Read [1]
+https://www.sba-research.org/wp-content/uploads/publications/jsfingerprinting.pdf
+
+Term in [1]	Our use of the term
+
+"test set"	- list of npm packages (in our case)
+
+
+Essential far-reaching goals in fingerprinting 
+
+Questions asked and answered by testjuq:
+ What is It?
+ Is it X ?
+ Which version of X is it?
+ What can it do?
+ How fast it can do set of things?
+ How does it compare to Y ?
+ What are the performance curves of X.m in particular cases?
+
+
+Steps to getting going with development
+=======================================
+
+- take jQuery as first package to be added and tested
+- take a simple and very frequently used package? lodash, the kind..
+- assess a clash (misidentification) between 2 often used packages
+
+Technical: Fingerprinting elements, and how big is the space
+ - strings: the names of the keys convey information
+ - 9 return types (from 'typeof')
+ - N amount of keys on the object (depends on package)
+ - P packages total in the database of known packages
+
+The bigger the package's code is, more information it
+has -- at least potentially.
+
+What is the ballpark speed of enumerating packages
+- while creating the database ("Write")
+- while identifying a given symbol ("Read")
+
+- write initial thoughts of the usefulness
+- how does the valve fingerprint library differ from juq?
+  (https://github.com/Valve/fingerprintjs2 ) 
+- define metric for the internal assessment of accuracy of jug
+- increase reliability rate of identification
+- make automated database update (watcher for new npm packages and updates)
+
+
+
+References
+
+[1]
+   "Fast and Reliable Browser Identification with
+   JavaScript Engine Fingerprinting"
+   Mulazzani, Reschl, Huber
+   https://www.sba-research.org/wp-content/uploads/publications/jsfingerprinting.pdf

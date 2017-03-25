@@ -1,0 +1,19 @@
+{
+  "name": "testjuq",
+  "version": "1.0.0",
+  "description": "Fingerprint symbols to find out whether they are known packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jukka Paulin",
+  "license": "MIT",
+  "devDependencies": {
+    "npm-name": "^3.0.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "jquery": "^3.2.1",
+    "sizeof": "^1.0.0"
+  }
+}
